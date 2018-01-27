@@ -1,8 +1,9 @@
 {
   "name": "@turbonemesis/cli",
-  "version": "1.0.2",
+  "version": "0.0.0",
   "license": "MIT",
   "repository": "https://github.com/chase2981/angular2-rollup",
+  "private": false,
   "contributors": [
     "Chase Gibbons",
     "Stephen Belovarich",
@@ -27,7 +28,8 @@
     "build:lib": "rimraf dist && node build.lib.js",
     "build:prod": "rimraf build && node build.prod.js",
     "serve": "node server.js",
-    "scaffold": "node build.scaffold.js"
+    "scaffold": "node build.scaffold.js",
+    "publish": "npm publish --access=public"
   },
   "dependencies": {
     "chalk": "^1.1.3",
