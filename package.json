@@ -1,9 +1,10 @@
 {
-  "name": "angular-rollup",
+  "name": "@turbonemesis/cli",
   "version": "1.0.2",
   "license": "MIT",
-  "repository": "https://github.com/steveblue/angular2-rollup",
+  "repository": "https://github.com/chase2981/angular2-rollup",
   "contributors": [
+    "Chase Gibbons",
     "Stephen Belovarich",
     "olegreznichenko"
   ],
@@ -50,6 +51,6 @@
     "shelljs": "^0.7.8"
   },
   "bin": {
-    "ngr": "cli.js"
+    "rd": "cli.js"
   }
 }

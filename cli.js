@@ -118,18 +118,18 @@ let cmpVersions = function(a, b) {
 
 let updateMessage = function(result) {
     utils.warn('');
-    utils.alert(utils.colors.red('Please update angular-rollup to the latest version ' + result.trim()));
+    utils.alert(utils.colors.red('Please update @turbonemesis/cli to the latest version ' + result.trim()));
     utils.alert(utils.colors.red('See what\'s changed https://github.com/steveblue/angular2-rollup/blob/master/CHANGELOG.md'));
-    utils.alert(utils.colors.white('npm i -g angular-rollup@latest'));
+    utils.alert(utils.colors.white('npm i -g @turbonemesis/cli@latest'));
     utils.warn('');
 }
 
 let devMessage = function(result) {
-    utils.alert(utils.colors.grey('angular-rollup DEVELOPMENT '+result.trim()));
+    utils.alert(utils.colors.grey('@turbonemesis/cli DEVELOPMENT '+result.trim()));
 }
 
 let versionMessage = function (result) {
-    utils.alert(utils.colors.grey('angular-rollup ' + result.trim()));
+    utils.alert(utils.colors.grey('@turbonemesis/cli ' + result.trim()));
 }
 
 let checkVersion = function(package, result, index) {
@@ -522,7 +522,7 @@ let init = function() {
 
 if (!program.generate) {
 
-    exec('npm view angular-rollup version', { silent: true }, function (err, result, c) {
+    exec('npm view @turbonemesis/cli version', { silent: true }, function (err, result, c) {
 
         let sanitizedResult = result.replace('-beta', '').replace('-rc', '').trim();
         let sanitizedPackageVersion = package.version.replace('-beta', '').replace('-rc', '').replace(',', '');
@@ -554,6 +554,3 @@ if (!program.generate) {
 }
 
 init();
-
-
-
