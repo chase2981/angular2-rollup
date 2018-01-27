@@ -130,7 +130,7 @@ const copy = {
   Compile Tasks
 
 - clean: Removes source code comments
-- ts: Compiles AOT for development using ngc
+- ts: Compiles AOT for development using rd
 
 */
 
@@ -212,12 +212,12 @@ const compile = {
       if (canWatch === true) {
         utils.alert('@angular/compiler started');
         readyMessage(true);
-        spawn(path.normalize(config.projectRoot + '/node_modules/.bin/ngc') + ' -p ' +
+        spawn(path.normalize(config.projectRoot + '/node_modules/.bin/rd') + ' -p ' +
           path.normalize('./tsconfig.dev.json') +
           ' --watch', { shell: true, stdio: 'inherit' });
       } else {
         utils.alert('@angular/compiler started');
-        exec(path.normalize(config.projectRoot + '/node_modules/.bin/ngc') +
+        exec(path.normalize(config.projectRoot + '/node_modules/.bin/rd') +
           ' -p ' + path.normalize('./tsconfig.dev.json'), { shell: true, stdio: 'inherit' }, function(){
             utils.alert('@angular/compiler compiled');
             readyMessage();
@@ -242,7 +242,7 @@ const compile = {
   - file: Styles a single file.
          - If the file is in the /src/styles folder it will compile /src/styles/style.scss
          - If the file is elsewhere, like part of a Component, it will compile into the
-          appropriate folder in the /src directory, then ngc will run and compile for AOT
+          appropriate folder in the /src directory, then rd will run and compile for AOT
   - src: Compiles the global styles
 
   SASS render method is called and fs writes the files to appropriate folder

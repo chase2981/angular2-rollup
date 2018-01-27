@@ -145,7 +145,7 @@ const copy = {
   Compile Tasks
 
 - clean: Removes source code comments from bundles
-- src: Compiles AOT for production using ngc, Rollup, or Closure Compiler depending on arguments
+- src: Compiles AOT for production using rd, Rollup, or Closure Compiler depending on arguments
 - bundleRollup: ngr build prod, bundles the app in an IIFE with Rollup, then optimizes the bundle with Closure Compiler
 - bundleClosure ngr build prod --closure, bundles the app with Closure Compiler in ADVANCED_OPTIMIZATIONS mode
 - bundleLazy: ngr build prod --closure --lazy, bundles the app and lazyloaded routes with Closure Compiler in ADVANCED_OPTIMIZATIONS mode
@@ -302,7 +302,7 @@ const compile = {
             '----------------------------------------------------------------------------------------------------' + '\n' +
             finalExec.split('\\').join('').replace(/\r?\n|\r/g, '') + '\n' +
             '----------------------------------------------------------------------------------------------------');
-          log('If the problem persists, there may be an issue with the build. Report the issue here (https://github.com/steveblue/angular2-rollup/issues)');
+          log('If the problem persists, there may be an issue with the build. Report the issue here (https://github.com/chase2981/angular2-rollup/issues)');
           finalBuild.kill();
         }
 
@@ -579,7 +579,7 @@ const compile = {
 
     let tsConfig = (parseInt(utils.angularVersion.split('.')[0].replace(/=|<|>|~|>=|<=|\^/g, '')) < 5) ? './tsconfig.prod.lazy.json' : './tsconfig.prod.json';
 
-    let ngc = exec(path.normalize(config.projectRoot + '/node_modules/.bin/ngc') +
+    let rd = exec(path.normalize(config.projectRoot + '/node_modules/.bin/rd') +
       ' -p ' + path.normalize(tsConfig), { silent: true }, function (code, output, error) {
 
         if (error) {
@@ -673,14 +673,14 @@ const compile = {
 
     let startCompile = () => {
 
-      // remove moduleId prior to ngc build. TODO: look for another method.
+      // remove moduleId prior to rd build. TODO: look for another method.
       ls(path.normalize('ngfactory/**/*.ts')).forEach(function (file) {
         sed('-i', /^.*moduleId: module.id,.*$/, '', file);
       });
 
       alert('@angular/compiler', 'started');
 
-      let ngc = exec(path.normalize(config.projectRoot + '/node_modules/.bin/ngc') +
+      let rd = exec(path.normalize(config.projectRoot + '/node_modules/.bin/rd') +
         ' -p ' + path.normalize('./tsconfig.prod.json'), { silent: true }, function (code, output, error) {
           if (error) {
             warn(error);
@@ -721,7 +721,7 @@ const compile = {
   - file: Styles a single file.
          - If the file is in the /src/styles folder it will compile /src/styles/style.scss
          - If the file is elsewhere, like part of a Component, it will compile into the
-          appropriate folder in the /ngfactory directory, then ngc will run and compile for AOT
+          appropriate folder in the /ngfactory directory, then rd will run and compile for AOT
   - src: Compiles the global styles
 
   SASS render method is called and fs writes the files to appropriate folder

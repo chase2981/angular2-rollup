@@ -121,7 +121,7 @@ let init = function () {
 
     if (cliVersion) {
 
-        utils.log('Review changes to angular-rollup in the CHANGELOG (https://github.com/steveblue/angular2-rollup/blob/master/CHANGELOG.md)');
+        utils.log('Review changes to angular-rollup in the CHANGELOG (https://github.com/chase2981/angular2-rollup/blob/master/CHANGELOG.md)');
 
         if (cliVersion === '1.0.0-beta.10') {
 

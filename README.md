@@ -339,7 +339,7 @@ Yes. This feature became readily available in 1.0.0-rc.4. Just include a `ngr.co
 The production build relies heavily on Closure Compiler, which provides excellent optimizations but unfortunately is not compatible with most third party libraries. Luckily, Closure Compiler can be configured to build referencing methods and variables found in external scripts. Follow this step by step questionaire to figure out which method to use.
 
 - Does the library conform to Angular Package Spec 5.0?
-    YES: Will be bundled by `ngc`, inject the NgModule into your application, add to `closure.conf` and/or closure.lazy.conf
+    YES: Will be bundled by `rd`, inject the NgModule into your application, add to `closure.conf` and/or closure.lazy.conf
     NO: See next question
 
 - Is the library written in ES2015?
@@ -445,7 +445,7 @@ Closure Compiler cannot handle libraries that import ES2015 modules with `*`.
 
 ### How do I provide typings for external libraries?
 
-You may also need to inject `typings` for `ngc` to properly inject dependencies during AOT compilation.
+You may also need to inject `typings` for `rd` to properly inject dependencies during AOT compilation.
 
 ```
 "compilerOptions": {

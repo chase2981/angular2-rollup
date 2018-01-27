@@ -91,7 +91,7 @@ const copy = {
 
 - clean: Removes source code comments
 - src: Compiles library components and formats for AOT,
-       using `ngc` and Rollup, according to Angular Package Format 4.0 spec
+       using `rd` and Rollup, according to Angular Package Format 4.0 spec
 - umdLib: Formats the bundle according to the UMD module pattern in /dist/bundles/
 - es5Lib: Transpiles the bundle down to ES5 in /dist
 
@@ -150,7 +150,7 @@ const compile = {
     isCompiling = true;
 
 
-    // remove moduleId prior to ngc build. TODO: look for another method.
+    // remove moduleId prior to rd build. TODO: look for another method.
     ls(path.normalize('./tmp/**/*.ts')).forEach(function (file) {
 
       compile.clean(file);
@@ -163,7 +163,7 @@ const compile = {
       utils.log('es2015 started');
       //alert('@angular/compiler', 'started');
 
-      let tsc = exec(path.normalize(config.processRoot + '/node_modules/.bin/ngc') +
+      let tsc = exec(path.normalize(config.processRoot + '/node_modules/.bin/rd') +
         ' -p ' + (libConfigPath !== null ? path.join(libConfig.src, libConfig.es2015.tsConfig) : libConfig.es2015.tsConfig), {silent: true}, function (code, output, error) {
 
           alert('@angular/compiler compiled ngfactory');
@@ -189,7 +189,7 @@ const compile = {
 
     utils.log('umd started');
 
-    let tsc = exec(path.normalize(config.processRoot + '/node_modules/.bin/ngc') +
+    let tsc = exec(path.normalize(config.processRoot + '/node_modules/.bin/rd') +
       ' -p ' + (libConfigPath !== null ? path.join(libConfig.src, libConfig.umd.tsConfig) : libConfig.umd.tsConfig), { silent: true }, function (code, output, error) {
         alert('@angular/compiler compiled ngfactory');
         //alert('rollup', 'started');
@@ -234,7 +234,7 @@ const compile = {
 
     utils.log('es5 started');
 
-    let tsc = exec(path.normalize(config.processRoot + '/node_modules/.bin/ngc') +
+    let tsc = exec(path.normalize(config.processRoot + '/node_modules/.bin/rd') +
       ' -p ' + (libConfigPath !== null ? path.join(libConfig.src, libConfig.es5.tsConfig) : libConfig.es5.tsConfig), { silent: true }, function (code, output, error) {
 
         alert('@angular/compiler compiled ngfactory');
@@ -341,7 +341,7 @@ const compile = {
   - file: Styles a single file.
          - If the file is in the /src/styles folder it will compile /src/styles/style.scss
          - If the file is elsewhere, like part of a Component, it will compile into the
-          appropriate folder in the /tmp directory, then ngc will run and compile for AOT
+          appropriate folder in the /tmp directory, then rd will run and compile for AOT
   - src: Compiles the global styles
 
   SASS render method is called and fs writes the files to appropriate folder

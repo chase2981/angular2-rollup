@@ -312,7 +312,7 @@ $`npm install`
 
 ```
 $ ngr update --cliVersion 1.0.0-beta.10
-[13:17:07] LOG Review changes to angular-rollup in the CHANGELOG (https://github.com/steveblue/angular2-rollup/blob/master/CHANGELOG.md)
+[13:17:07] LOG Review changes to angular-rollup in the CHANGELOG (https://github.com/chase2981/angular2-rollup/blob/master/CHANGELOG.md)
 [13:17:07] LOG lazy.config.json copied to /Users/steveb/www/4-test/
 [13:17:07] LOG system.polyfill.js copied to /Users/steveb/www/4-test/
 [13:17:07] WARN src/public/system.import.js already exists
@@ -521,7 +521,7 @@ To build for production with support for lazyloaded routes:
 - Updated npm package name to `angular-rollup`, `angular2-rollup` is deprecated
 - Cross platform support including MacOS, Windows and Linux for the CLI
 - Updated CLI to support `@angular` 5.0.0+
-- `ngr build dev --watch` will trigger `ngc` in `--watch` mode
+- `ngr build dev --watch` will trigger `rd` in `--watch` mode
 - `ngr build jit` triggers JIT build, use for `@angular` 4.0.0 development
 - Backwards compatible to 4.0.0 with minor adjustments to config, 2.0.0 by downgrading `@angular` boilerplate
 
@@ -641,7 +641,7 @@ platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
 
 This file is unnecessary.
 
-Prior to 5.0.0 `main.prod.ts` needed to be included for `ngc`. After 5.0.0 `ngc` can use just `app.module.ts` as an entry point. Rollup still uses `main.prod.js` as an entry point.
+Prior to 5.0.0 `main.prod.ts` needed to be included for `rd`. After 5.0.0 `rd` can use just `app.module.ts` as an entry point. Rollup still uses `main.prod.js` as an entry point.
 
 `tsconfig.dev.json`
 
